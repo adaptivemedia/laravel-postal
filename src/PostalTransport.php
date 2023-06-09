@@ -156,10 +156,10 @@ class PostalTransport extends AbstractTransport
 
             $email->subject = $symfonyMessage->getSubject();
 
-            if ($symfonyMessage->getTextBody()) {
-                $email->body = $symfonyMessage->getTextBody();
-            } elseif ($symfonyMessage->getHtmlBody()) {
+            if ($symfonyMessage->getHtmlBody()) {
                 $email->body = $symfonyMessage->getHtmlBody();
+            } elseif ($symfonyMessage->getTextBody()) {
+                $email->body = $symfonyMessage->getTextBody();
             }
 
             $email->postal_email_id = $response->result->message_id;
